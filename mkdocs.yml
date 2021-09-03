@@ -1,0 +1,24 @@
+site_name: 東京デバイセズ TDPC0201 ユーザーガイド
+site_url: https://tokyodevices.com/
+copyright: 2021 &copy; Tokyo Devices, Inc.
+site_dir: docs
+docs_dir: src
+
+theme:
+  name: 'material'
+  language: 'ja'
+#  logo: 'https://micro-bucket.com/images/logo120.png'
+#  favicon: 'https://micro-bucket.com/favicon.ico'
+  palette:
+    primary: 'teal'
+    accent: 'pink'
+
+
+markdown_extensions:
+  - footnotes
+
+nav:
+  - "はじめに": index.md
+  - "使い方": usage.md
+  - "デバイスの設定": config.md
+
