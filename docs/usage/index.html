@@ -217,7 +217,21 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    制御コマンド
+    制御コマンドの入手
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    ゼロクリア
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最も簡単な運用バッチプログラムの作成
   </a>
   
 </li>
@@ -275,7 +289,21 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    制御コマンド
+    制御コマンドの入手
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    ゼロクリア
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最も簡単な運用バッチプログラムの作成
   </a>
   
 </li>
@@ -298,10 +326,11 @@
                 
                 <h1 id="_1">使い方</h1>
 <h2 id="_2">接続方法</h2>
+<p><img src="https://s3.ap-northeast-1.amazonaws.com/docs.tokyodevices.jp/tdpc0201-docs/TDPC0201_connection.png" /></p>
 <ol>
 <li>
-<p>マザーボードのリセットボタン用ピンと、リセットマスターの出力ピンを接続します。(+と-の極性があります)
-   リセットマスターと並列して手動のリセットボタンも使いたい方は、並列接続ピンにリセットボタンを接続します。</p>
+<p>上記の接続図を参照して、マザーボードのリセットボタン用ピンと、リセットマスターの出力ピンを接続します。(+と-の極性があります)
+   リセットマスターと並列して手動のリセットボタンも使いたい方は、リセットボタンを接続します。</p>
 </li>
 <li>
 <p>USBケーブルでリセットマスターとPC本体と接続します。</p>
@@ -313,14 +342,21 @@
 <p>リセットマスターがリセットを実行しないよう、制御コマンドで内蔵カウンタをクリアしつづけます。</p>
 </li>
 </ol>
-<h2 id="_3">制御コマンド</h2>
+<h2 id="_3">制御コマンドの入手</h2>
 <p><a href="https://github.com/tokyodevices/td-usb/blob/master/README_ja.md">汎用制御コマンドTD-USB</a>を使用します。</p>
 <p>Windows環境の場合には<a href="https://github.com/tokyodevices/td-usb/blob/master/README_ja.md">TD-USBのページ</a>よりダウンロードしてください。
 Linux環境の場合には、Githubの<a href="https://github.com/tokyodevices/td-usb">tokyodevices/td-usbリポジトリ</a>からソースコードを取得し、お使いの環境向けにコンパイルしてください。</p>
+<h2 id="_4">ゼロクリア</h2>
 <p>WindowsやLinuxのコマンドラインから下記を実行すると、リセットマスターをゼロクリアします。
 お使いのPC環境から、定期的にこのコマンドを実行するようにしてください。</p>
-<pre><code>&gt; td-usb tcpc0201 set
+<pre><code>&gt; td-usb tdpc0201 set
 </code></pre>
+<h2 id="_5">最も簡単な運用バッチプログラムの作成</h2>
+<p>Windowsのメモ帳等で、以下の内容を書き込んだ watchdog_clear.bat というバッチファイルを用意してください。</p>
+<pre><code>(インストールした場所)\td-usb tdpc0201 set --loop
+</code></pre>
+<p>このバッチファイルを実行すると、1秒ごとにリセットマスターをゼロクリアします。
+PCがフリーズしてバッチファイルが動作できなくなった時にリブートが実行されます。</p>
                 
               
               
